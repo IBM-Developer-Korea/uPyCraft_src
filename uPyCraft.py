@@ -388,6 +388,7 @@ class MainWidget(QMainWindow):
 
         #self.refreshBoardFileAction=QAction(QIcon(":/flush.png"),self.tr("Reflush Directory "),self)
         self.refreshBoardFileAction=QAction(self.tr("Reflush Directory "),self)  
+        self.refreshBoardFileAction.setShortcut("Ctrl+R")
         self.refreshBoardFileAction.setStatusTip(self.tr("refresh board file"))  
         self.connect(self.refreshBoardFileAction,SIGNAL("triggered()"),self.slotTreeModel)
 
@@ -569,6 +570,7 @@ class MainWidget(QMainWindow):
 
         #self.downloadAction=QAction(QIcon(":/download.png"),self.tr("Download"),self)
         self.downloadAction=QAction(self.tr("Download"),self)
+        self.downloadAction.setShortcut("Ctrl+D")
         self.downloadAction.setStatusTip(self.tr("download file to the board"))
         self.connect(self.downloadAction,SIGNAL("triggered()"),self.slotDownloadFile)
 
