@@ -4,6 +4,7 @@
     <file alias="clear.png">images/clear.png</file>
     <file alias="serialClose.png">images/serialClose.png</file>
     <file alias="serialConnect.png">images/serialConnect.png</file>
+    <file alias="download.png">images/download.png</file>
     <file alias="downloadAndRun.png">images/downloadAndRun.png</file>
     <file alias="fileOpen.png">images/fileOpen.png</file>
     <file alias="ic.png">images/ic.png</file>
