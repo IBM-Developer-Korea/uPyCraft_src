@@ -170,6 +170,9 @@ class SerialWidget(QWidget):
         self.stopbitsComboBox.addItems(['1','1.5','2'])
         self.stopbitsComboBox.setCurrentIndex(0)
 
+        self.rtsCheckbox=QCheckBox("Set the initial state of RTS line as low")
+        self.rtsCheckbox.setChecked(Qt.Checked)
+
         self.okButton=QPushButton(self.tr("ok"))
         self.cancelButton=QPushButton(self.tr("cancel"))
 		
@@ -185,7 +188,9 @@ class SerialWidget(QWidget):
 
         detailLayout.addWidget(serialParity,3,0)
         detailLayout.addWidget(self.parityComboBox,3,1)
-		
+
+        detailLayout.addWidget(self.rtsCheckbox,4,0)
+
         detailLayout.addItem(QSpacerItem(200,200),4,0)
         self.setLayout(detailLayout)
         
@@ -206,6 +211,8 @@ class SerialWidget(QWidget):
         self.ser.stopbits = int(self.stopbitsComboBox.currentText())
         self.ser.timeout=0.001
         self.ser.flow="N"
+        # Set RTS value as low to prevent rebooting ESP32 DevKit when the serial port is connected
+        self.ser.rts = False if self.rtsCheckbox.isChecked() else True
         self.ser.open()
 
 class LanLocWidget(QWidget):
@@ -238,7 +245,9 @@ class updateConfig(QWidget):
         checkFirmware=QLabel(self.tr("CheckFirmware"))
         self.checkBinComBox=QComboBox()
         self.checkBinComBox.addItems(['check update','no check'])
-        self.checkBinComBox.setCurrentIndex(0)
+        # Disable version check
+        self.checkBinComBox.setCurrentIndex(1)
+        self.checkBinComBox.setEnabled(False)
 
         self.detailWidget=QWidget()
         detailLayout=QGridLayout(self.detailWidget)
