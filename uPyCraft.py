@@ -574,6 +574,10 @@ class MainWidget(QMainWindow):
         self.downloadAction.setStatusTip(self.tr("download file to the board"))
         self.connect(self.downloadAction,SIGNAL("triggered()"),self.slotDownloadFile)
 
+        self.downloadToolsAction=QAction(QIcon(":/download.png"),self.tr("Download"),self)
+        self.downloadToolsAction.setStatusTip(self.tr("download file to the board"))
+        self.connect(self.downloadToolsAction,SIGNAL("triggered()"),self.slotDownloadFile)
+
         #self.downloadAndRunAction=QAction(QIcon(":/downloadAndRun.png"),self.tr("DownloadAndRun"),self)
         self.downloadAndRunAction=QAction(self.tr("DownloadAndRun"),self) 
         self.downloadAndRunAction.setShortcut("F5") 
@@ -665,6 +669,7 @@ class MainWidget(QMainWindow):
         fileToolBar.addAction(self.fileNewToolsAction)
         fileToolBar.addAction(self.fileOpenToolsAction)
         fileToolBar.addAction(self.fileSaveToolsAction)
+        fileToolBar.addAction(self.downloadToolsAction)
         fileToolBar.addAction(self.downloadAndRunToolsAction)
         fileToolBar.addAction(self.stopProgramToolsAction)
         fileToolBar.addAction(self.serialConnectToolsAction)
