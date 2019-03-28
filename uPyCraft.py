@@ -42,7 +42,7 @@ from microbit_api               import MICROPYTHON_APIS
 from SourceCodePro import SourceCodePro
 
 mainShow=True
-nowIDEVersion      ="1.1"
+nowIDEVersion      ="1.1 for badge2018"
 isCheckFirmware    =False
 rootDirectoryPath  =os.path.expanduser("~")
 rootDirectoryPath  =rootDirectoryPath.replace("\\","/")
